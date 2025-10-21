@@ -16,7 +16,9 @@ app.get('/random', (req, res) => {
 // New /print endpoint
 app.post('/print', (req, res) => {
   // Return whatever was sent in the request body
-  res.json({ received: req.body });
+  console.log(JSON.stringify(res.json({ received: req.body }), null, 2);
+  const number = Math.floor(Math.random() * 5) + 1;
+  res.json({ instances: number });
 });
 
 app.listen(port, () => {
