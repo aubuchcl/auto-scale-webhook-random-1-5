@@ -26,8 +26,12 @@ app.post('/print', (req, res) => {
 });
 
 app.get('/print', (req, res) => {
-  // Log the request body in formatted JSON
+  // Log the request body (for POST-like requests) and query params
+  console.log('Request Body:');
   console.log(JSON.stringify(req.body, null, 2));
+
+  console.log('Query Parameters:');
+  console.log(JSON.stringify(req.query, null, 2));
 
   // Generate a random number between 1 and 5
   const number = Math.floor(Math.random() * 5) + 1;
@@ -35,6 +39,7 @@ app.get('/print', (req, res) => {
   // Send response
   res.json({ instances: number });
 });
+
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
